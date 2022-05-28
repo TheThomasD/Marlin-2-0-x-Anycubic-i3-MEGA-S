@@ -826,7 +826,7 @@
 
 //#define HOMING_BACKOFF_POST_MM { 2, 2, 2 }  // (mm) Backoff from endstops after homing
 
-//#define QUICK_HOME                          // If G28 contains XY do a diagonal move first
+#define QUICK_HOME                          // If G28 contains XY do a diagonal move first
 #if DISABLED(KNUTWURST_CHIRON)
   #define HOMING_BACKOFF_POST_MM { 2, 2, 0 }  // (mm) Move away from the endstops after homing
 #endif
@@ -1989,10 +1989,10 @@
  */
 #if ENABLED(KNUTWURST_BLTOUCH)
   #if PROBE_SELECTED && !IS_KINEMATIC
-    #define PROBING_MARGIN_LEFT  10
-    #define PROBING_MARGIN_RIGHT 10
-    #define PROBING_MARGIN_FRONT 10
-    #define PROBING_MARGIN_BACK  10
+    #define PROBING_MARGIN_LEFT  0
+    #define PROBING_MARGIN_RIGHT 0
+    #define PROBING_MARGIN_FRONT 0
+    #define PROBING_MARGIN_BACK  0
   #endif
 #endif
 

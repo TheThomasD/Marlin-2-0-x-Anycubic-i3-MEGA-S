@@ -421,7 +421,7 @@ void EndstopBeep() {
     #if ENABLED(HOST_PROMPT_SUPPORT)
       host_prompt_reason = PROMPT_FILAMENT_RUNOUT;
       host_action_prompt_end();
-      host_action_prompt_begin(PSTR("FilamentRunout T"), false);
+      host_action_prompt_begin(host_prompt_reason, ("FilamentRunout T"), false);
       SERIAL_CHAR(tool);
       SERIAL_EOL();
       host_action_prompt_show();

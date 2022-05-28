@@ -97,10 +97,10 @@
  *
  * These settings are required and not set by PlatformIO.
  */
-#define KNUTWURST_PRHEAT_NOZZLE_PLA 200
+#define KNUTWURST_PRHEAT_NOZZLE_PLA 210
 #define KNUTWURST_PRHEAT_BED_PLA     60
-#define KNUTWURST_PRHEAT_NOZZLE_ABS 240
-#define KNUTWURST_PRHEAT_BED_ABS     90
+#define KNUTWURST_PRHEAT_NOZZLE_ABS 230
+#define KNUTWURST_PRHEAT_BED_ABS    100
 
 
 //===========================================================================
@@ -657,7 +657,7 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 300
+#define HEATER_0_MAXTEMP 260
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
@@ -665,7 +665,7 @@
 #define HEATER_5_MAXTEMP 275
 #define HEATER_6_MAXTEMP 275
 #define HEATER_7_MAXTEMP 275
-#define BED_MAXTEMP      150
+#define BED_MAXTEMP      100
 #define CHAMBER_MAXTEMP  60
 
 /**
@@ -696,9 +696,9 @@
                                   // Set/get with gcode: M301 E[extruder number, 0-2]
 
   #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
-    #define  DEFAULT_Kp 12.28
-    #define  DEFAULT_Ki  0.75
-    #define  DEFAULT_Kd 50.06
+    #define DEFAULT_Kp  16.22
+    #define DEFAULT_Ki   1.08
+    #define DEFAULT_Kd  61.10
   #endif
 
   #if ENABLED(KNUTWURST_MEGA_X)
@@ -755,9 +755,9 @@
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
   #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
-    #define DEFAULT_bedKp 251.78
-    #define DEFAULT_bedKi  49.57
-    #define DEFAULT_bedKd 319.73
+    #define DEFAULT_bedKp 51.79
+    #define DEFAULT_bedKi 9.88
+    #define DEFAULT_bedKd 181.04
   #endif
 
   #if ENABLED(KNUTWURST_MEGA_X)
@@ -1101,7 +1101,7 @@
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
 #if ENABLED(KNUTWURST_MEGA)
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 98 }
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160.48, 160.32, 800, 190 }
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_S)
@@ -1506,7 +1506,7 @@
  *     O-- FRONT --+
  */
 #if ENABLED(KNUTWURST_BLTOUCH)
-  #define NOZZLE_TO_PROBE_OFFSET { -2, -25, -0.4 } //https://www.thingiverse.com/thing:2824005
+  #define NOZZLE_TO_PROBE_OFFSET { -5, -24, -2.3 } //https://www.thingiverse.com/thing:2824005
   //#define NOZZLE_TO_PROBE_OFFSET { 29, -15, 0 } //X-Carriage
 #endif
 
@@ -1523,9 +1523,9 @@
 //#define PROBING_MARGIN 10
 
 #if ENABLED(KNUTWURST_CHIRON)
-  #define PROBING_MARGIN 15
+  #define PROBING_MARGIN 10
 #else
-  #define PROBING_MARGIN 35
+  #define PROBING_MARGIN 10
 #endif
 
 // X and Y axis travel speed (mm/m) between probes
@@ -1573,7 +1573,7 @@
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-//#define MULTIPLE_PROBING 2
+#define MULTIPLE_PROBING 2
 //#define EXTRA_PROBING    1
 
 /**
@@ -1874,7 +1874,7 @@
 //#define Z_HOMING_HEIGHT  4      // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
                                   // Be sure to have this much clearance over your Z_MAX_POS to prevent grinding.
 
-//#define Z_AFTER_HOMING  10      // (mm) Height to move to after homing Z
+#define Z_AFTER_HOMING  10      // (mm) Height to move to after homing Z
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
@@ -1897,14 +1897,14 @@
 */
 
 #if ENABLED(KNUTWURST_MEGA)
-  #define X_MIN_POS 0
-  #define Y_MIN_POS 0
+  #define X_MIN_POS -4
+  #define Y_MIN_POS -1
   #define Z_MIN_POS 0
-  #define X_BED_SIZE 215
-  #define Y_BED_SIZE 215
-  #define Z_MAX_POS 206
-  #define X_MAX_POS X_BED_SIZE
-  #define Y_MAX_POS Y_BED_SIZE
+  #define X_BED_SIZE 220
+  #define Y_BED_SIZE 220
+  #define Z_MAX_POS 195
+  #define X_MAX_POS X_BED_SIZE + 5
+  #define Y_MAX_POS Y_BED_SIZE + 5
 #endif
 
 #if ANY(KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
@@ -2006,7 +2006,7 @@
  * RAMPS-based boards use SERVO3_PIN for the first runout sensor.
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
  */
-//#define FILAMENT_RUNOUT_SENSOR
+#define FILAMENT_RUNOUT_SENSOR
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
@@ -2109,8 +2109,8 @@
 #if EITHER(KNUTWURST_BLTOUCH, KNUTWURST_TFT_LEVELING)
   //#define AUTO_BED_LEVELING_3POINT
   //#define AUTO_BED_LEVELING_LINEAR
-  #define AUTO_BED_LEVELING_BILINEAR
-  //#define AUTO_BED_LEVELING_UBL
+  //#define AUTO_BED_LEVELING_BILINEAR
+  #define AUTO_BED_LEVELING_UBL
   //#define MESH_BED_LEVELING
 #endif
 
@@ -2160,7 +2160,7 @@
   // The height can be set with M420 Z<height>
   #define ENABLE_LEVELING_FADE_HEIGHT
   #if ENABLED(ENABLE_LEVELING_FADE_HEIGHT)
-    #define DEFAULT_LEVELING_FADE_HEIGHT 0.0 // (mm) Default fade height.
+    #define DEFAULT_LEVELING_FADE_HEIGHT 10.0 // (mm) Default fade height.
   #endif
 
   // For Cartesian machines, instead of dividing moves on mesh boundaries,
@@ -2220,11 +2220,11 @@
 
   //#define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
 
-  #define MESH_INSET 1              // Set Mesh bounds as an inset region of the bed
-  #define GRID_MAX_POINTS_X 10      // Don't use more than 15 points per axis, implementation limited.
+  #define MESH_INSET 10              // Set Mesh bounds as an inset region of the bed
+  #define GRID_MAX_POINTS_X 11      // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
-  //#define UBL_HILBERT_CURVE       // Use Hilbert distribution for less travel when probing multiple points
+  #define UBL_HILBERT_CURVE       // Use Hilbert distribution for less travel when probing multiple points
 
   #define UBL_MESH_EDIT_MOVES_Z     // Sophisticated users prefer no movement of nozzle
   #define UBL_SAVE_ACTIVE_ON_M500   // Save the currently active mesh in the current slot on M500
@@ -2330,12 +2330,17 @@
  */
 #if BOTH(KNUTWURST_BLTOUCH, KNUTWURST_4MAXP2)
   #define Z_SAFE_HOMING
+#elif ENABLED(KNUTWURST_MEGA)
+  #define Z_SAFE_HOMING
 #endif
 
 
-#if ENABLED(Z_SAFE_HOMING)
+#if BOTH(Z_SAFE_HOMING, KNUTWURST_4MAXP2)
   #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
   #define Z_SAFE_HOMING_Y_POINT Y_CENTER  // Y point for Z homing
+#else
+  #define Z_SAFE_HOMING_X_POINT X_MIN_POS  // X point for Z homing
+  #define Z_SAFE_HOMING_Y_POINT Y_MIN_POS  // Y point for Z homing
 #endif
 
 #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
@@ -2469,13 +2474,13 @@
 //
 #define PREHEAT_1_LABEL       "PLA"
 #define PREHEAT_1_TEMP_HOTEND 180
-#define PREHEAT_1_TEMP_BED     70
+#define PREHEAT_1_TEMP_BED     60
 //#define PREHEAT_1_TEMP_CHAMBER 35
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "ABS"
-#define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    110
+#define PREHEAT_2_TEMP_HOTEND 230
+#define PREHEAT_2_TEMP_BED    100
 //#define PREHEAT_2_TEMP_CHAMBER 35
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
