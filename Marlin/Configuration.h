@@ -1897,14 +1897,14 @@
 */
 
 #if ENABLED(KNUTWURST_MEGA)
-  #define X_MIN_POS -4
+  #define X_MIN_POS -5
   #define Y_MIN_POS -1
   #define Z_MIN_POS 0
   #define X_BED_SIZE 220
   #define Y_BED_SIZE 220
   #define Z_MAX_POS 195
-  #define X_MAX_POS X_BED_SIZE + 5
-  #define Y_MAX_POS Y_BED_SIZE + 5
+  #define X_MAX_POS X_BED_SIZE
+  #define Y_MAX_POS Y_BED_SIZE
 #endif
 
 #if ANY(KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
@@ -2011,7 +2011,7 @@
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
 
-  #define FIL_RUNOUT_STATE     LOW        // Pin state indicating that filament is NOT present.
+  #define FIL_RUNOUT_STATE     HIGH        // Pin state indicating that filament is NOT present.
   #define FIL_RUNOUT_PULLUP               // Use internal pullup for filament runout pins.
   //#define FIL_RUNOUT_PULLDOWN           // Use internal pulldown for filament runout pins.
   //#define WATCH_ALL_RUNOUT_SENSORS      // Execute runout script on any triggering sensor, not only for the active extruder.
@@ -2166,7 +2166,7 @@
   // For Cartesian machines, instead of dividing moves on mesh boundaries,
   // split up moves into short segments like a Delta. This follows the
   // contours of the bed more closely than edge-to-edge straight moves.
-  #define SEGMENT_LEVELED_MOVES
+  //#define SEGMENT_LEVELED_MOVES
   #define LEVELED_SEGMENT_LENGTH 5.0 // (mm) Length of all segments (except the last one)
 
   /**
@@ -2221,7 +2221,7 @@
   //#define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
 
   #define MESH_INSET 10              // Set Mesh bounds as an inset region of the bed
-  #define GRID_MAX_POINTS_X 11      // Don't use more than 15 points per axis, implementation limited.
+  #define GRID_MAX_POINTS_X 7      // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   #define UBL_HILBERT_CURVE       // Use Hilbert distribution for less travel when probing multiple points
