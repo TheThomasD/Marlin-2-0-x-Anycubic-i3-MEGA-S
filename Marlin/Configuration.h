@@ -181,7 +181,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 250000
+#define BAUDRATE 115200
 //#define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
 /* EXP1 Header
@@ -1101,7 +1101,7 @@
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
 #if ENABLED(KNUTWURST_MEGA)
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160.48, 160.32, 800, 190 }
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160.24, 160.08, 794.04, 190 }
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_S)
@@ -2109,8 +2109,8 @@
 #if EITHER(KNUTWURST_BLTOUCH, KNUTWURST_TFT_LEVELING)
   //#define AUTO_BED_LEVELING_3POINT
   //#define AUTO_BED_LEVELING_LINEAR
-  //#define AUTO_BED_LEVELING_BILINEAR
-  #define AUTO_BED_LEVELING_UBL
+  #define AUTO_BED_LEVELING_BILINEAR
+  //#define AUTO_BED_LEVELING_UBL
   //#define MESH_BED_LEVELING
 #endif
 
@@ -2166,7 +2166,7 @@
   // For Cartesian machines, instead of dividing moves on mesh boundaries,
   // split up moves into short segments like a Delta. This follows the
   // contours of the bed more closely than edge-to-edge straight moves.
-  //#define SEGMENT_LEVELED_MOVES
+  #define SEGMENT_LEVELED_MOVES
   #define LEVELED_SEGMENT_LENGTH 5.0 // (mm) Length of all segments (except the last one)
 
   /**

@@ -27,7 +27,7 @@
 
 #include "./src/inc/MarlinConfigPre.h"
 #include "./src/feature/bedlevel/bedlevel.h"
-#include "./src/feature/bedlevel/ubl/ubl.h"
+#include "./src/feature/bedlevel/abl/abl.h"
 #include "src/module/probe.h"
 
 
