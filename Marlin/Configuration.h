@@ -1361,7 +1361,7 @@
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
 #if ENABLED(KNUTWURST_MEGA)
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160.24, 160.08, 794.04, 190 }
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160.36, 160.12, 792.06, 190.00 }
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_S)
@@ -2551,7 +2551,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 5
+  #define GRID_MAX_POINTS_X 10
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column

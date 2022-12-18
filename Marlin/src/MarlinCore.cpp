@@ -436,12 +436,9 @@ void EndstopBeep() {
 
     //action:out_of_filament
     #if ENABLED(HOST_PROMPT_SUPPORT)
-      host_prompt_reason = PROMPT_FILAMENT_RUNOUT;
-      host_action_prompt_end();
-      host_action_prompt_begin(host_prompt_reason, ("FilamentRunout T"), false);
+      hostui.prompt_do(PROMPT_FILAMENT_RUNOUT, F("FilamentRunout T"));
       SERIAL_CHAR(tool);
       SERIAL_EOL();
-      host_action_prompt_show();
     #endif
 
     const bool run_runout_script = !runout.host_handling;
@@ -455,17 +452,17 @@ void EndstopBeep() {
           #endif
         )
       ) {
-        host_action_paused(false);
+        hostui.pause(false);
       } else {
         // Legacy Repetier command for use until newer version supports standard dialog
         // To be removed later when pause command also triggers dialog
         #ifdef ACTION_ON_FILAMENT_RUNOUT
-          host_action(PSTR(ACTION_ON_FILAMENT_RUNOUT " T"), false);
+        hostui.action(F(ACTION_ON_FILAMENT_RUNOUT " T"), false);
           SERIAL_CHAR(tool);
           SERIAL_EOL();
         #endif
 
-        host_action_pause(false);
+        hostui.pause(false);;
       }
       SERIAL_ECHOPGM(" " ACTION_REASON_ON_FILAMENT_RUNOUT " ");
       SERIAL_CHAR(tool);
