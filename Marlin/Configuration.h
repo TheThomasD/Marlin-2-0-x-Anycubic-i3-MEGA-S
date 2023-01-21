@@ -797,9 +797,9 @@
   #endif
 
   #if ENABLED(KNUTWURST_CHIRON)
-    #define DEFAULT_Kp  20.00
-    #define DEFAULT_Ki   0.50
-    #define DEFAULT_Kd 106.55
+    #define DEFAULT_Kp  15.39 //20.00
+    #define DEFAULT_Ki   0.86 //0.50
+    #define DEFAULT_Kd 123.00 //106.55
   #endif
 
   #if ENABLED(KNUTWURST_4MAXP2)
@@ -900,9 +900,9 @@
   #endif
 
   #if ENABLED(KNUTWURST_CHIRON)
-    #define DEFAULT_bedKp   97.10
-    #define DEFAULT_bedKi    1.41
-    #define DEFAULT_bedKd 1675.16
+    #define DEFAULT_bedKp   80.08 //97.10
+    #define DEFAULT_bedKi    12.22 //1.41
+    #define DEFAULT_bedKd 349.90 //1675.16
   #endif
 
   #if ENABLED(KNUTWURST_4MAXP2)
