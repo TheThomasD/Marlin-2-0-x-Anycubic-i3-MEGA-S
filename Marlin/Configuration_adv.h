@@ -870,7 +870,7 @@
   #endif
   #if ENABLED(Z_MULTI_ENDSTOPS)
     #define Z2_USE_ENDSTOP   _XMAX_   // Z2 endstop board plug. Don't forget to enable USE_*_PLUG.
-    #define Z2_ENDSTOP_ADJUSTMENT 0   // Z2 offset relative to Y endstop
+    #define Z2_ENDSTOP_ADJUSTMENT 1.0   // Z2 offset relative to Y endstop
   #endif
   #ifdef Z3_DRIVER_TYPE
     // #define INVERT_Z3_VS_Z_DIR      // Z3 direction signal is the opposite of Z
@@ -920,7 +920,7 @@
 #endif
 // #define XY_COUNTERPART_BACKOFF_MM 0         // (mm) Backoff X after homing Y, and vice-versa
 
-// #define QUICK_HOME                          // If G28 contains XY do a diagonal move first
+#define QUICK_HOME                          // If G28 contains XY do a diagonal move first
 // #define HOME_Y_BEFORE_X                     // If G28 contains XY home Y before X
 // #define HOME_Z_FIRST                        // Home Z first. Requires a Z-MIN endstop (not a probe).
 // #define CODEPENDENT_XY_HOMING               // If X/Y can't home without homing Y/X first
