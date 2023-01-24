@@ -797,9 +797,9 @@
   #endif
 
   #if ENABLED(KNUTWURST_CHIRON)
-    #define DEFAULT_Kp  15.39 //20.00
-    #define DEFAULT_Ki   0.86 //0.50
-    #define DEFAULT_Kd 123.00 //106.55
+    #define DEFAULT_Kp  15.00 //20.00
+    #define DEFAULT_Ki   1.00 //0.50
+    #define DEFAULT_Kd 200.00 //106.55
   #endif
 
   #if ENABLED(KNUTWURST_4MAXP2)
@@ -1844,7 +1844,7 @@
  *     O-- FRONT --+
  */
 #if ENABLED(KNUTWURST_BLTOUCH)
-  #define NOZZLE_TO_PROBE_OFFSET { -29, -4, -1.41 } // https://www.thingiverse.com/thing:2824005
+  #define NOZZLE_TO_PROBE_OFFSET { -29, -4, -1.2 } // https://www.thingiverse.com/thing:2824005
   // #define NOZZLE_TO_PROBE_OFFSET { 29, -15, 0 } //X-Carriage
 #endif
 
@@ -2296,7 +2296,7 @@
   #define Y_MIN_POS 0
   #define Z_MIN_POS 0
   #define X_BED_SIZE 405
-  #define Y_BED_SIZE 410
+  #define Y_BED_SIZE 415
   #define Z_MAX_POS 445
   #define X_MAX_POS X_BED_SIZE + 15
   #define Y_MAX_POS Y_BED_SIZE
