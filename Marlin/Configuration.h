@@ -1825,7 +1825,7 @@
  *     O-- FRONT --+
  */
 #if ENABLED(KNUTWURST_BLTOUCH)
-  #define NOZZLE_TO_PROBE_OFFSET { -5.2, -22, -2.35 } //https://www.thingiverse.com/thing:2824005
+  #define NOZZLE_TO_PROBE_OFFSET { -5.2, -22, -2.4 } //https://www.thingiverse.com/thing:2824005
   //#define NOZZLE_TO_PROBE_OFFSET { 29, -15, 0 } //X-Carriage
 #endif
 
