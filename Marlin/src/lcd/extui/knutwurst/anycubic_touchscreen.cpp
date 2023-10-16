@@ -29,6 +29,7 @@
 #include "../../../feature/e_parser.h"
 #include "../../../feature/pause.h"
 #include "../../../feature/bedlevel/bedlevel.h"
+#include "../../../feature/babystep.h"
 #include "../../../libs/buzzer.h"
 #include "../../../libs/numtostr.h"
 #include "../../../module/planner.h"
@@ -826,12 +827,14 @@
                  || (strcasestr_P(currentTouchscreenSelection, PSTR(SM_BLTZ_UP_S)) != NULL)
                  ) {
           SERIAL_ECHOLNPGM("Special Menu: Offset UP");
+          babystep.add_mm(Z_AXIS, 0.01f);
           probe.offset.z += 0.01F;
         }
         else if ((strcasestr_P(currentTouchscreenSelection, PSTR(SM_BLTZ_DN_L)) != NULL)
                  || (strcasestr_P(currentTouchscreenSelection, PSTR(SM_BLTZ_DN_S)) != NULL)
                  ) {
           SERIAL_ECHOLNPGM("Special Menu: Offset Down");
+          babystep.add_mm(Z_AXIS, -0.01f);
           probe.offset.z -= 0.01F;
         }
         else if ((strcasestr_P(currentTouchscreenSelection, PSTR(SM_BLTZ_EXIT_L)) != NULL)
